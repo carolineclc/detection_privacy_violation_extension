@@ -2,16 +2,27 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel ="stylesheet" type="text/css" href="../popup/popup.css">
   </head>
 
   <body>
-      <details >
-        <div id="header-title-cookies" ></div>
-        <h3 id="number-cookies"></h3>
-        <h2>All cookies:</h2>
-        <ul id="cookie-list">
-        </ul>
-      </details>
+    <div class = "panel">
+        <div class="header-panel">
+            <h1 id="website-security-status">Website Safety</h1>
+            <h2 id="website-score"></h2>
+            <progress id="score-progress-bar" value="0" max="400"></progress>
+        <div>
+        <details>
+           <summary class = "details-text"> Cookies </summary> 
+            <div id="header-title-cookies" ></div>
+            <h3 id="number-cookies"></h3>
+            <h2>First Party Cookies:</h2>
+            <ul id="fp-cookie-list"> </ul>
+            <h2>Third Party Cookies:</h2>
+            <ul id="tp-cookie-list"> </ul>
+        </details>
+    </div>
+
 
     <script src="../content_scripts/cookies_script.js"></script>
   </body>
