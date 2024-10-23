@@ -17,13 +17,16 @@ function getActiveTab() {
 
 const showCookiesForTab = (tabs) => {
     let tab = tabs.pop();
+
     let currentDomain = getDomain(tab.url);
     let countCookies = 0;
     var gettingAllCookies = browser.cookies.getAll({
       url: tab.url
     });
+    
   
     gettingAllCookies.then((cookies) => {
+      
     
       var activeTabUrl = document.getElementById('header-title-cookies');
       var text = document.createTextNode("Cookies at: "+tab.title);
@@ -35,12 +38,13 @@ const showCookiesForTab = (tabs) => {
       if (cookies.length > 0) {
         for (let cookie of cookies) {
           if (cookie.domain === currentDomain || cookie.domain.endsWith(currentDomain)){
-            console.log("entrou");
             let li = document.createElement("li");
             let content = document.createTextNode(cookie.name + ": "+ cookie.value);
             li.appendChild(content);
             firstpartycookieList.appendChild(li);
           } else{
+
+
             let li = document.createElement("li");
             let content = document.createTextNode(cookie.name + ": "+ cookie.value);
             li.appendChild(content);

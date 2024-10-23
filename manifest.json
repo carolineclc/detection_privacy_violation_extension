@@ -23,14 +23,12 @@
   "http://*/*",
   "https://*/*"],
 
-  "background": {
-    "scripts": ["background.js"]
-  },
+
 
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["content_script/cookies_script.js"]
+      "js": ["background.js"]
     }
   ]
 }
