@@ -17,25 +17,26 @@ const getAllExternalLinks = () => {
 
   return data;
 } 
-
 const getFingerprint = () => {
-  const fpPromise = import('https://openfpcdn.io/fingerprintjs/v3')
-    .then(FingerprintJS => FingerprintJS.load()
-  )
+
+  // Initialize the agent at application startup.
+  // If you're using an ad blocker or Brave/Firefox, this import will not work.
+  // Please use the NPM package instead: https://t.ly/ORyXk
+  const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4')
+    .then(FingerprintJS => FingerprintJS.load())
+
+  // Get the visitor identifier when you need it.
   fpPromise
     .then(fp => fp.get())
     .then(result => {
-      const visitorId = result.visitorId;
-      let visitorIdElement = document.getElementById('teste');
-      visitorIdElement.innerHTML = visitorId;
+      // This is the visitor identifier:
+      const visitorId = result.visitorId
       if(visitorId){
-        return visitorId;
-      } else {
+        return visitorId
+      }else{
         return null;
       }
-    }
-  )
-}
+    })}
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 

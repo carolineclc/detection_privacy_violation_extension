@@ -9,9 +9,8 @@
     <div class = "panel">
         <div class="header-panel">
             <h1 id="website-security-status">Website Safety</h1>
-            <h2 id="website-score"></h2>
-            <progress id="score-progress-bar" value="0" max="400"></progress>
         <div>
+
         <details>
            <summary class = "details-text"> Cookies </summary> 
             <div id="header-title-cookies" ></div>
@@ -33,11 +32,18 @@
           <summary class = "details-text"> Local Storage</summary>
           <h3 id = "size-local-storage"></h3>
           <ul id="list-local-storage"> </ul>
+        </details>
+        
+        <details>
+          <summary class = "details-text"> Fingerprinting</summary>
+          <h3 id="fingerprint-exists"></h3>
+        </details>
     </div>
 
 
     <script src="../content_scripts/cookies_script.js"></script>
     <script src="../content_scripts/third_party_domain_script.js"></script>
     <script src="../content_scripts/local_storage_script.js"></script>
+    <script src="../content_scripts/fingerprint_script.js"></script>
   </body>
 </html>
