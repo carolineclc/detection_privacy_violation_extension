@@ -1,5 +1,7 @@
 const getAllExternalLinks = () => {
+  console.log("entrou");
   var allExternalLinks = Array.prototype.map.call(
+    
     document.querySelectorAll(
       "link, img, video, audio,script, iframe, source, embed"
     ),
@@ -36,6 +38,7 @@ const getFingerprint = () => {
 }
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+
   switch (request.method) {
     case "sessionStorageData":
       sendResponse({ 
@@ -43,11 +46,13 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
       });
       break;
     case "localStorageData":
+    
       sendResponse({ 
         data: Object.entries(localStorage) 
       });
       break;
     case "thirdPartyDomains":
+      
       sendResponse({ 
         data: getAllExternalLinks() 
       });
