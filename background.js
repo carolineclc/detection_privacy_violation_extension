@@ -38,6 +38,8 @@ const getFingerprint = () => {
       }
     })}
 
+ 
+
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
   switch (request.method) {
