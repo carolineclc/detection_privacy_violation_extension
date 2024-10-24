@@ -9,12 +9,15 @@
     <div class = "panel">
         <div class="header-panel">
             <h1 id="website-security-status">Website Safety</h1>
+            <progress id ="website-score" value = 0, max = 200></progress>
         <div>
 
         <details>
            <summary class = "details-text"> Cookies </summary> 
             <div id="header-title-cookies" ></div>
             <h3 id="number-cookies"></h3>
+            <h2>Cookie Invasion</h2>
+            <progress id = "cookie-security" value = 0, max = 100></progress>
             <h2>First Party Cookies:</h2>
             <ul id="fp-cookie-list"> </ul>
             <h2>Third Party Cookies:</h2>
@@ -24,18 +27,22 @@
         <details>
           <summary class = "details-text"> Third Party Domains</summary>
           <h3 id = "size-third-party"></h3>
+          <progress id ="third-party-domain-security" value = 0, max = 200></progress>
           <h2> List of third party domanis</h2>
           <ul id="third-party-domain-list"> </ul>
         </details>
 
         <details>
           <summary class = "details-text"> Local Storage</summary>
+          <h2>Local Storage Security</h2>
+          <progress id = "local-storage-security" value = 0, max = 50></progress>
           <h3 id = "size-local-storage"></h3>
           <ul id="list-local-storage"> </ul>
         </details>
         
         <details>
           <summary class = "details-text"> Fingerprinting</summary>
+          <h3 id = "fingerprint-status"></h3>
           <h3 id="fingerprint-exists"></h3>
         </details>
 
@@ -50,5 +57,6 @@
     <script src="../content_scripts/local_storage_script.js"></script>
     <script src="../content_scripts/fingerprint_script.js"></script>
     <script src="../content_scripts/threat_listener_script.js"></script>
+    <script src="../content_scripts/security_score_script.js"></script>
   </body>
 </html>

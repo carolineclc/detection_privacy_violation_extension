@@ -64,7 +64,15 @@ const showCookiesForTab = (tabs) => {
         p.appendChild(content);
         parent.appendChild(p);
       }
-  
+
+      var CookieSecurity = document.getElementById('cookie-security');
+      if (countCookies >= 200){
+        CookieSecurity.setAttribute("value", "100");
+      } else if (countCookies > 100 && countCookies < 200){
+        CookieSecurity.setAttribute("value", countCookies.toString());
+      } else {
+        CookieSecurity.setAttribute("value", countCookies.toString());
+      }
 
 
     });

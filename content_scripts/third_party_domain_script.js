@@ -7,7 +7,7 @@ function getActiveTab() {
 const setThirdPartyDomains = async (tabs) => {
   let tab = tabs.pop();
   var thirdPartyDomainsList = document.getElementById('third-party-domain-list');
-
+  var thirdPartyDomainsSecurity = document.getElementById('third-party-domain-security');
   const response = await browser.tabs.sendMessage(tab.id, {
     method: "thirdPartyDomains"
   });
@@ -19,6 +19,14 @@ const setThirdPartyDomains = async (tabs) => {
   var sizeLinksText = document.createTextNode("Number of external links: "+ numberOfLinks);
   sizeLinks.appendChild(sizeLinksText);
 
+  if(numberOfLinks > 200){
+    thirdPartyDomainsSecurity.setAttribute("value", "200");
+  } else if (numberOfLinks > 100 && numberOfLinks < 200){
+    thirdPartyDomainsSecurity.setAttribute("value", numberOfLinks.toString());
+  } else {
+    thirdPartyDomainsSecurity.setAttribute("value", numberOfLinks.toString());
+  }
+  
   thirdPartyDomains.forEach(function(domain) {
     var li = document.createElement('li');
     var text = document.createTextNode(domain);
